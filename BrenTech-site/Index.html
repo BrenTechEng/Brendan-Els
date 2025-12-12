@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BrenTech Engineering | Laser Cutting Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050814;
+      --primary: #0f5fff;
+      --accent: #00b894;
+      --text: #f5f5f5;
+      --muted: #b0b7c3;
+      --card: #101522;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0b1630 0, #050814 55%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ===== HEADER + LOGO + NAV ===== */
+
+    header {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 16px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;        /* centre nav with logo on desktop */
+    }
+
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1;
+    }
+
+    /* Desktop / tablet logo size */
+    .brentech-logo {
+      width: 280px;               /* bigger logo on laptop */
+      max-width: 100%;
+      height: Auto;
+      display: block;
+      margin-bottom: -100px;
+    }
+
+    /* nav on the right */
+    .top-nav {
+      display: flex;
+      gap: 24px;
+      margin-top: 20px;           /* 🔽 smaller gap under logo on desktop */
+      margin-left: auto;          /* pushes to the right */
+    }
+
+    .top-nav a,
+    .top-nav a:visited {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .top-nav a:hover {
+      color: var(--primary);
+    }
+
+    /* ===== HERO SECTION ===== */
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto 20px;        /* 🔽 tighter spacing under header */
+      padding: 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 3.2vw, 3.1rem);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #3f8bff);
+      color: white;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--muted);
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1a2340, #090d19);
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid #1f2940;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .metric-label {
+      color: var(--muted);
+    }
+
+    .metric-value {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.6fr);
+      gap: 32px;
+    }
+
+    section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 16px 18px;
+      border: 1px solid #1d2535;
+      margin-bottom: 14px;
+    }
+
+    .card h4 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid #27334a;
+      padding: 3px 9px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      margin-top: 14px;
+      font-size: 0.95rem;
+    }
+
+    .contact-box a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto 30px;
+      padding: 0 16px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-top: 1px solid #1d2535;
+      padding-top: 16px;
+    }
+
+    /* ===== RESPONSIVE (MOBILE/TABLET) ===== */
+
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .brentech-logo {
+        width: 300px;             /* bigger logo on phone too */
+        max-width: 90%;
+        margin-left: -20px;   /* same shift on mobile */
+        margin-bottom: -40px;       /* 🔽 tighter gap above nav */
+      }
+
+      .top-nav {
+        margin-top: -40px;          /* 🔽 tighter gap below logo */
+        margin-left: 0;
+        gap: 16px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo-block">
+      <img src="https://i.imgur.com/8ZbjC8N.png"
+           alt="BrenTech Engineering Logo"
+           class="brentech-logo">
+    </div>
+
+    <nav class="top-nav">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div>
+      <div class="tagline">Precision Laser Cutting</div>
+      <h1>
+        High-accuracy <span>laser cutting services</span> for custom projects.
+      </h1>
+      <p>
+        BrenTech Engineering provides fast, precise and affordable laser cutting 
+        for small businesses, hobbyists, custom projects and one-off parts. 
+        Offering clean cuts, sharp detail and reliable turnaround times.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/27846184005" target="_blank">
+          WhatsApp for a quote
+        </a>
+        <a class="btn btn-outline"
+           href="mailto:quotebrentech@gmail.com?subject=Laser%20cutting%20quote%20request&body=Hi%20BrenTech%20Engineering,%0D%0A%0D%0AI%27d%20like%20to%20request%20a%20quote%20for%20laser%20cutting.%0D%0A%0D%0AProject%20details:%0D%0AMaterial:%0D%0AThickness:%0D%0AQuantity:%0D%0ARequired%20date:%0D%0A%0D%0ARegards,%0D%0A">
+          Email a quote request
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        Based in Gauteng · Laser Cutting Services · Not VAT registered
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h2>Core capabilities</h2>
+      <div class="metric-row">
+        <span class="metric-label">Service</span>
+        <span class="metric-value">Laser cutting</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Ideal for</span>
+        <span class="metric-value">Custom parts · Prototypes · Signage</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Focus</span>
+        <span class="metric-value">Quality · Precision · Turnaround</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <section id="services">
+      <h3>Laser Cutting Services</h3>
+      <p>
+        BrenTech Engineering specialises exclusively in laser cutting. 
+        Perfect for prototypes, custom parts, signage, brackets, artwork, 
+        industrial components and small production runs.
+      </p>
+
+      <div class="card">
+        <h4>Precision Laser Cutting</h4>
+        <p>
+          High-accuracy laser cutting with clean edges, sharp detail and 
+          consistent quality across all materials. Ideal for engineering, 
+          decorative, functional or mechanical parts.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Mild steel</span>
+          <span class="pill">Stainless steel</span>
+          <span class="pill">Aluminium</span>
+          <span class="pill">Acrylic</span>
+          <span class="pill">Wood</span>
+          <span class="pill">Custom materials</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>Custom Part Manufacturing</h4>
+        <p>
+          Send your design or sketch and we will convert it into a clean, 
+          accurate, cut-ready file. Perfect for brackets, panels, logos, 
+          signage and custom components.
+        </p>
+        <div class="pill-row">
+          <span class="pill">DXF/DWG ready</span>
+          <span class="pill">Design cleanup</span>
+          <span class="pill">Small batch runs</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>Fast Turnaround</h4>
+        <p>
+          Quick lead times depending on material and complexity. Ideal for 
+          businesses or individuals needing rapid delivery.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Same-week delivery</span>
+          <span class="pill">Competitive pricing</span>
+          <span class="pill">Nationwide shipping available</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h3>About BrenTech Engineering</h3>
+      <p>
+        BrenTech Engineering is a South African small-business operation 
+        run by Brendan (“Bren”), offering high-precision laser cutting 
+        services for both personal and industrial needs.
+      </p>
+      <p>
+        Whether you need a once-off custom part, a small production batch, 
+        a prototype, signage, artwork or bracket fabrication — BrenTech 
+        provides accurate, clean and reliable laser cutting at competitive prices.
+      </p>
+
+      <div class="card">
+        <h4>Why work with BrenTech?</h4>
+        <ul style="margin-left:16px; color:var(--muted); font-size:0.92rem;">
+          <li>Clean, high-quality laser cutting</li>
+          <li>Flexible for both individuals and small businesses</li>
+          <li>Fast turnaround and responsive communication</li>
+          <li>Affordable pricing for once-off jobs or small batches</li>
+          <li>Custom design assistance available</li>
+        </ul>
+      </div>
+
+      <div id="contact" class="contact-box">
+        <h3>Contact</h3>
+        <p>For quotes, design help or project enquiries:</p>
+        <p>
+          Phone / WhatsApp: <strong>(+27) 84 618 4005</strong><br />
+          Email: <a href="mailto:quotebrentech@gmail.com">quotebrentech@gmail.com</a><br />
+          Location: Gauteng, South Africa
+        </p>
+        <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">
+          VAT status: Not VAT registered (invoices issued without VAT).
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> BrenTech Engineering. All rights reserved.</div>
+    <div>Laser cutting · custom parts · prototypes</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
